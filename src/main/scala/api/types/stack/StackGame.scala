@@ -2,7 +2,7 @@ package api.types.stack
 
 import api.types.grid.GridGame
 import api.types.grid.components.Cell
-import api.types.stack.components.StackCell
+import api.types.stack.components.{Alignment, Horizontal, StackCell, Vertical}
 
 abstract class StackGame extends GridGame {
 
@@ -10,17 +10,17 @@ abstract class StackGame extends GridGame {
    * Defines the direction the cells will be rendered.
    * It can be either "vertical" or "horizontal"
    */
-  def direction: "vertical" | "horizontal"
+  def direction: Alignment
 
   def gridSize: (Int, Int) = direction match {
-    case "vertical" => (1, cells.length)
-    case "horizontal" => (cells.length, 1)
+    case Vertical => (1, cells.length)
+    case Horizontal => (cells.length, 1)
   }
 
   override def cells: List[Cell] = stack.zipWithIndex.map { case (cell, index) => Cell(
       label = cell.label, 
-      x = if direction == "horizontal" then index else 0, 
-      y = if direction == "vertical" then index else 0, 
+      x = if direction == Horizontal then index else 0, 
+      y = if direction == Vertical then index else 0, 
       entities = cell.entities, 
       actions = cell.actions, 
       img = cell.img
