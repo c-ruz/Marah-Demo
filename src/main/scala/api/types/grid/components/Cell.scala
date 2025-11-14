@@ -18,10 +18,10 @@ import model.actions.Action
  *             If not provided, the cell will be rendered as a solid color.
  */
 case class Cell(
-    label: Option[String],
-    x: Int,
-    y: Int,
-    entities: List[CellEntity],
-    actions: List[Action],
-    img: Option[String]
+    label: Option[String] = None,
+    x: Int = 0,
+    y: Int = 0,
+    entities: List[CellEntity] = List.empty,
+    actions: List[Action] = List.empty,
+    img: Option[String] = None
 )

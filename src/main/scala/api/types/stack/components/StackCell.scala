@@ -13,8 +13,8 @@ import model.actions.Action
  *             If not provided, the cell will be rendered as a solid color.
  */
 case class StackCell(
-    label: Option[String],
-    entities: List[CellEntity],
-    actions: List[Action],
-    img: Option[String]
+    label: Option[String] = None,
+    entities: List[CellEntity] = List.empty,
+    actions: List[Action] = List.empty,
+    img: Option[String] = None
 )

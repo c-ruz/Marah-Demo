@@ -14,7 +14,7 @@ import model.actions.Action
  */
 case class CellEntity(
     name: String,
-    attributes: List[CellEntityAttribute],
-    actions: List[Action],
-    img: Option[String]
+    attributes: List[CellEntityAttribute] = List.empty,
+    actions: List[Action] = List.empty,
+    img: Option[String] = None
 )
