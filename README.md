@@ -83,6 +83,14 @@ Como se vio anteriormente, el `GameController` es la clase principal que **orque
 
 ## 🚀 Guía Rápida: Usando la Plantilla (Con Ejemplos)
 
+Antes, **se deben instalar las siguientes dependencias para poder trabajar con la plantilla:**
+
+- `Node.js` - Pueden instalarlo usando su método preferencia, para su sistema operativo, desde [https://nodejs.org/es/download](https://nodejs.org/es/download). Instalen la versión LTS.
+- `sbt`  >1.10. Para instalarlo en MacOS o Linux, se recomienda la herramienta SDKMAN! (https://sdkman.io/install). En windows, se debe instalar desde [https://www.scala-sbt.org/download.html](https://www.scala-sbt.org/download.html).
+- `java` - En Windows, se puede instalar desde [https://www.java.com/es/download/](https://www.java.com/es/download/). En MacOS y Linux, se puede usar SDKMAN!.
+
+---
+
 El sistema consta de dos partes principales:
 
 1.  **Backend (Scala):** Servidor API HTTP que entrega el estado del juego y maneja las acciones. Adicionalmente, este componente se divide en tres paquetes:
