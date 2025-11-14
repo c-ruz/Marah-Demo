@@ -32,9 +32,25 @@ buildFrontend := {
   val outputDir = frontendDir / "dist"
   val targetDir = base / "src" / "main" / "resources" / "public"
 
+  // Detectar si estamos en Windows
+  val os = System.getProperty("os.name").toLowerCase
+  val isWindows = os.contains("win")
+
+  // Crear los comandos apropiados para el SO
+  // En Windows, usamos "cmd /c" para ejecutar el comando en el shell de Windows.
+  // "cmd /c" ejecuta el comando y luego termina.
+  val npmInstall = if (isWindows) "cmd /c npm install" else "npm install"
+  val npmBuild = if (isWindows) "cmd /c npm run build" else "npm run build"
+
   log.info("🔧 Building frontend...")
-  Process("npm install", frontendDir).!
-  Process("npm run build", frontendDir).!
+
+  // Ejecutar los comandos específicos del SO
+  if (Process(npmInstall, frontendDir).! != 0) {
+    sys.error("¡Falló 'npm install'!")
+  }
+  if (Process(npmBuild, frontendDir).! != 0) {
+    sys.error("¡Falló 'npm run build'!")
+  }
 
   log.info(s"📁 Copying frontend dist to $targetDir...")
   IO.delete(targetDir)
